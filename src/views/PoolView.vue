@@ -7,7 +7,7 @@
       <error :error="poolError"></error>
     </template>
     <template v-else>
-      <pools-stats :pool="pool"></pools-stats>
+      <pools-view :pool="pool"></pools-view>
     </template>
   </div>
 </template>
@@ -17,7 +17,7 @@ import api from '@/services/api';
 
 import Loading from '@/components/ui/Loading.vue';
 import Error from '@/components/ui/Error.vue';
-import PoolsStats from '../components/features/PoolsStats.vue';
+import PoolsView from '@/components/features/PoolsView.vue';
 
 export default {
   data() {
@@ -29,7 +29,7 @@ export default {
   },
   mounted() {
     api
-      .get(`/pools/${this.$route.params.id}/stats`)
+      .get(`/pools/${this.$route.params.id}`)
       .then((response) => {
         this.pool = response.data;
         this.poolLoading = false;
@@ -42,7 +42,7 @@ export default {
   components: {
     Loading,
     Error,
-    PoolsStats,
+    PoolsView,
   },
 };
 </script>

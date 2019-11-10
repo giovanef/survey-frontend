@@ -36,14 +36,32 @@ input[type='text'] {
 .btn {
   border: none;
   cursor: pointer;
-  background-color: #1da1f2;
-  color: #ffffff;
   font-weight: bold;
   padding: 10px 20px;
 
   &:hover {
-    background-color: #1a91da;
+    background-color: #ccc;
   }
+  
+  &.btn-primary {
+    background-color: #1da1f2;
+    color: #ffffff;
+    
+    &:hover {
+      background-color: #1a91da;
+    }
+  }
+}
+
+.btn ~ .btn {
+  margin-left: 5px;
+}
+
+.title {
+  padding: 20px 15px 10px;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 40px;
 }
 
 .pools {
@@ -51,23 +69,61 @@ input[type='text'] {
 
   &-utils {
     padding: 10px 15px;
+    text-align: right;
   }
 
   &-list {
     list-style: none;
-    display: block;
     margin: 0 0 30px;
     padding: 0;
-    border-top: 1px #38444d solid;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 
     li {
       width: 100%; 
-      padding: 15px;
-      border-bottom: 1px #38444d solid;
+      padding: 15px 20px;
+      cursor: pointer;
+      text-align: center;
+      
+      &:hover {
+        background-color: #313c47;
+      }
 
       p {
         margin: 0;
       }
+    }
+  }
+
+  &-vote {
+    padding: 30px;
+
+    .buttons {
+      margin: 20px 0 0;
+    }
+  }
+}
+
+table {
+  width: 100%;
+
+  th {
+    text-align: left;
+  }
+}
+
+@media all and (max-width: 767px) {
+  .pools {
+    &-list {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
+
+@media all and (max-width: 520px) {
+  .pools {
+    &-list {
+      display: block;
     }
   }
 }
