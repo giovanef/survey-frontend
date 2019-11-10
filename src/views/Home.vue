@@ -1,18 +1,42 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="pools">
+    <div class="pools-utils">
+      <router-link to="/pools/new" tag="button" class="btn">
+        Adicionar
+      </router-link>
+    </div>
+
+    <ul class="pools-list">
+      <li>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Quaerat quo nam inventore tenetur.
+        </p>
+      </li>
+      <li>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Quaerat quo nam inventore tenetur.
+        </p>
+      </li>
+      <li>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Quaerat quo nam inventore tenetur.
+        </p>
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue';
-
 export default {
-  name: 'home',
-  components: {
-    HelloWorld,
+  data() {
+    return {
+      pools: [],
+    };
+  },
+  mounted() {
   },
 };
 </script>
