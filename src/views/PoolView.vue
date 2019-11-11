@@ -1,20 +1,25 @@
 <template>
-  <div class="pools">
-    <template v-if="poolLoading">
-      <loading></loading>
-    </template>
-    <template v-else-if="poolError">
-      <error :error="poolError"></error>
-    </template>
-    <template v-else>
-      <pools-view :pool="pool"></pools-view>
-    </template>
+  <div>
+    <breadcrumbs :items="breadcrumbs"></breadcrumbs>
+
+    <div class="pools">
+      <template v-if="poolLoading">
+        <loading></loading>
+      </template>
+      <template v-else-if="poolError">
+        <error :error="poolError"></error>
+      </template>
+      <template v-else>
+        <pools-view :pool="pool"></pools-view>
+      </template>
+    </div>
   </div>
 </template>
 
 <script>
 import api from '@/services/api';
 
+import Breadcrumbs from '@/components/ui/Breadcrumbs.vue';
 import Loading from '@/components/ui/Loading.vue';
 import Error from '@/components/ui/Error.vue';
 import PoolsView from '@/components/features/PoolsView.vue';
@@ -22,6 +27,13 @@ import PoolsView from '@/components/features/PoolsView.vue';
 export default {
   data() {
     return {
+      breadcrumbs: [
+        { title: 'Home', to: { name: 'home' } },
+        {
+          title: `Enquete ${this.$route.params.id}`,
+          to: { name: 'pools-view', params: { id: this.$route.params.id } },
+        },
+      ],
       pool: null,
       poolLoading: true,
       poolError: false,
@@ -40,6 +52,7 @@ export default {
       });
   },
   components: {
+    Breadcrumbs,
     Loading,
     Error,
     PoolsView,

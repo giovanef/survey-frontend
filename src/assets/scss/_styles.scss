@@ -69,6 +69,41 @@ input[type='text'] {
   margin-left: 5px;
 }
 
+.breadcrumbs {
+  width: 100%;
+  padding: 0 10px;
+  text-align: right;
+
+  ul {
+    list-style: none;
+
+    li {
+      display: inline;
+
+      a {
+        color: #dddddd;
+        font-size: 12px;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      &:not(:first-child):before {
+        display: inline-block;
+        padding-right: 6px;
+        color: #6c757d;
+        content: "/";
+      }
+    }
+
+    li + li {
+      padding-left: 6px;
+    }
+  }
+}
+
 .title {
   padding: 20px 15px 10px;
   font-size: 30px;
