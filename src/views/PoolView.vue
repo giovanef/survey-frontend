@@ -3,22 +3,14 @@
     <breadcrumbs :items="breadcrumbs"></breadcrumbs>
 
     <div class="pools">
-      <div class="title">Enquetes</div>
-
-      <div class="pools-utils">
-        <router-link :to="{ name: 'pools-new' }" tag="button" class="btn btn-primary">
-          Adicionar
-        </router-link>
-      </div>
-
-      <template v-if="poolsLoading">
+      <template v-if="poolLoading">
         <loading></loading>
       </template>
-      <template v-else-if="poolsError">
-        <error :error="poolsError"></error>
+      <template v-else-if="poolError">
+        <error :error="poolError"></error>
       </template>
       <template v-else>
-        <pools-list :pools="pools"></pools-list>
+        <pools-view :pool="pool"></pools-view>
       </template>
     </div>
   </div>
@@ -30,35 +22,40 @@ import api from '@/services/api';
 import Breadcrumbs from '@/components/ui/Breadcrumbs.vue';
 import Loading from '@/components/ui/Loading.vue';
 import Error from '@/components/ui/Error.vue';
-import PoolsList from '@/components/features/PoolsList.vue';
+import PoolsView from '@/components/features/PoolsView.vue';
 
 export default {
   data() {
     return {
       breadcrumbs: [
         { title: 'Home', to: { name: 'home' } },
+        {
+          title: `Enquete ${this.$route.params.id}`,
+          to: { name: 'pools-view', params: { id: this.$route.params.id } },
+        },
       ],
-      pools: [],
-      poolsLoading: true,
-      poolsError: false,
+      pool: null,
+      poolLoading: true,
+      poolError: false,
     };
   },
   mounted() {
-    api.get('/pools')
+    api
+      .get(`/pools/${this.$route.params.id}`)
       .then((response) => {
-        this.poolsLoading = false;
-        this.pools = response.data;
+        this.pool = response.data;
+        this.poolLoading = false;
       })
       .catch((error) => {
-        this.poolsError = error;
-        this.poolsLoading = false;
+        this.poolError = error;
+        this.poolLoading = false;
       });
   },
   components: {
     Breadcrumbs,
     Loading,
     Error,
-    PoolsList,
+    PoolsView,
   },
 };
 </script>
