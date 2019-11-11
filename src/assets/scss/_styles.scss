@@ -18,6 +18,14 @@ html, body {
   margin-top: 20px;
 }
 
+.mb-5 {
+  margin-bottom: 5px;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
 .w-100 {
   width: 100%;
 }
@@ -41,6 +49,10 @@ input[type='text'] {
 
   &:hover {
     background-color: #ccc;
+  }
+
+  &.btn-block {
+    width: 100%;
   }
   
   &.btn-primary {
@@ -100,6 +112,47 @@ input[type='text'] {
 
     .buttons {
       margin: 20px 0 0;
+    }
+  }
+
+  &-form {
+    width: 100%;
+    max-width: 600px;
+    padding: 30px;
+    margin: 0 auto;
+    
+  }
+}
+
+.field {
+  margin: 0 0 20px;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  label {
+    display: block;
+    width: 100%;
+    margin: 0 0 10px;
+  }
+
+  input {
+    width: 100%;
+  }
+}
+
+.dynamic-field {
+  position: relative;
+
+  .remove {
+    cursor: pointer;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+
+    &:hover {
+      color: #ff0000;
     }
   }
 }
