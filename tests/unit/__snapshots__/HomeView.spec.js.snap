@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomeView renderiza o componente 1`] = `
+<div>
+  <breadcrumbs-stub items="[object Object]"></breadcrumbs-stub>
+  <div class="pools">
+    <div class="title">Enquetes</div>
+    <div class="pools-utils">
+      <router-link-stub to="[object Object]" tag="button" class="btn btn-primary">
+        Adicionar
+      </router-link-stub>
+    </div>
+    <loading-stub></loading-stub>
+  </div>
+</div>
+`;

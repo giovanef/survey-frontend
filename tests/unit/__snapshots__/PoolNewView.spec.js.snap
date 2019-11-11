@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PoolNewView renderiza o componente 1`] = `
+<div>
+  <breadcrumbs-stub items="[object Object],[object Object]"></breadcrumbs-stub>
+  <div class="pools">
+    <div class="title">Adicionar Enquete</div>
+    <pools-form-stub></pools-form-stub>
+  </div>
+</div>
+`;

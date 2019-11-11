@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PoolViewView renderiza o componente 1`] = `
+<div>
+  <breadcrumbs-stub items="[object Object],[object Object]"></breadcrumbs-stub>
+  <div class="pools">
+    <loading-stub></loading-stub>
+  </div>
+</div>
+`;
